@@ -1,0 +1,62 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Cadastrar Novo Usuário
+</button>
+
+
+
+<table class="table table-bordered table-hover" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Faixa</th>
+      <th scope="col">Dojo</th>
+      <th scope="col">Cargo</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items | async">
+      <td><button type="button" class="btn btn-primary" (click)="editUser(item.id)">Editar</button></td>
+      <td>{{item.user_name}} <span class="badge badge-success" *ngIf='item.user_id_role == "VoxAfdY2sptXSPxkhvt7"'>Admin</span></td>
+      <td>{{item.user_surname}}</td>
+      <td>{{item.user_cpf}}</td>
+      <td>{{item.user_id_belt}}</td>
+      <td>{{item.user_id_dojo}}</td>
+      <td>{{item.user_id_role}}</td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteUser(item.id)">Excluir</button></td>
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+       <form class="form-signin col-md-12" [formGroup]="form">
+      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <label for="inputEmail" class="sr-only">Nome</label>
+      <input type="text" formControlName="name"  class="form-control" placeholder="Nome" required autofocus>
+      <label for="inputPassword" class="sr-only">Sobrenome</label>
+      <input type="text" formControlName="surname"  class="form-control" placeholder="Sobrenome" required>
+      <label for="inputPassword" class="sr-only">CPF</label>
+      <input type="number" formControlName="cpf"  class="form-control" placeholder="CPF" required>
+          
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" (click)="addUser()" data-dismiss="modal">Cadastrar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+

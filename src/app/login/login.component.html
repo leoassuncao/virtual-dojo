@@ -1,0 +1,16 @@
+
+   <form class="form-signin col-md-2" [formGroup]="form">
+      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Acesse</h1>
+      <label for="inputEmail" class="sr-only">E-mail</label>
+      <input type="email" formControlName="user"  class="form-control" placeholder="E-mail" required autofocus>
+      <label for="inputPassword" class="sr-only">Senha</label>
+      <input type="password" formControlName="password"  class="form-control" placeholder="Senha" required>
+      <div class="checkbox mb-3">
+      <!--  <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label> -->
+      </div>
+      <button class="btn btn-lg btn-secondary btn-block" (click)="doLogin()">Conectar</button>
+      <p class="mt-5 mb-3 text-muted">&copy;2018</p>
+    </form>
