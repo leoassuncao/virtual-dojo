@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
   Cadastrar Novo Usuário
 </button>
 
@@ -22,12 +22,13 @@
     <tr *ngFor="let item of items | async">
       <td><button type="button" class="btn btn-primary" (click)="editUser(item.id)">Editar</button></td>
       <td>{{item.user_name}} <span class="badge badge-success" *ngIf='item.user_id_role == "Administrador"'>Admin</span></td>
+
       <td>{{item.user_surname}}</td>
       <td>{{item.user_cpf}}</td>
       <td>{{item.user_id_belt}}</td>
       <td>{{item.user_id_dojo}}</td>
       <td>{{item.user_id_role}}</td>
-      <td><button type="button" class="btn btn-danger" (click)="deleteUser(item.id)">Excluir</button></td>
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmation" (click)="delClicked(item.id)">Excluir</button></td>
     </tr>
   
   </tbody>
@@ -50,23 +51,66 @@
       <label for="inputPassword" class="sr-only">CPF</label>
       <input type="number" formControlName="cpf"  class="form-control" placeholder="CPF" required>
           
-		
-		<div class="dropdown" >
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu" >
-    <li *ngFor="let item of belts | async">{{item.color}}</li>
+	
 
-  </ul>
-</div>
+    <div class="form-group">
+      <label for="belt">Faixa</label>
+      <select class="form-control" id="belt" formControlName="belts">
+        <option *ngFor="let belt of belts | async" [value]="belt.color">{{belt.color}}</option>
+      </select>
+    </div>
+
+
+     <div class="form-group">
+      <label for="dojo">Dojo</label>
+      <select class="form-control" id="dojo" formControlName="dojos">
+        <option *ngFor="let dojo of dojos | async" [value]="dojo.dojo_name">{{dojo.dojo_name}}</option>
+      </select>
+    </div>
+
+         <div class="form-group">
+      <label for="role">Role</label>
+      <select class="form-control" id="role" formControlName="roles">
+        <option *ngFor="let role of roles | async" [value]="role.role_name">{{role.role_name}}</option>
+      </select>
+    </div>
+
+
 
 
       <div class="modal-footer">
+      	<button type="button" class="btn btn-primary" (click)="addUser()" data-dismiss="modal">Cadastrar</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" (click)="addUser()" data-dismiss="modal">Cadastrar</button>
       </div>
       </form>
     </div>
   </div>
 </div>
 
+
+
+
+
+
+
+
+
+<div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    		<div class="modal-header">
+        <h5 class="modal-title">Excluir Usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir o usuário? </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteUser(idClicked)">Sim</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
