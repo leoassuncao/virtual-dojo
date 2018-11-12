@@ -14,6 +14,9 @@ export class UsersComponent  implements OnInit{
 
 private form: FormGroup;
 items: Observable<any[]>;
+belts: Observable<any[]>;
+
+
 
   constructor(private db: AngularFirestore) { 
 
@@ -22,13 +25,27 @@ items: Observable<any[]>;
             const data = a.payload.doc.data() ;
             const id = a.payload.doc.id;
             return { id, ...data };
+
         });
     }));
+	
+ this.belts = db.collection('Belts').snapshotChanges().pipe(map( changes => {
+        return changes.map(a => {
+            const data = a.payload.doc.data() ;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+
+        });
+    }));
+
+
+
 
 
 }
 
   ngOnInit() {
+
 
   this.form = new FormGroup({
 			name: new FormControl('', Validators.required),

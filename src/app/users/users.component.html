@@ -21,7 +21,7 @@
   <tbody>
     <tr *ngFor="let item of items | async">
       <td><button type="button" class="btn btn-primary" (click)="editUser(item.id)">Editar</button></td>
-      <td>{{item.user_name}} <span class="badge badge-success" *ngIf='item.user_id_role == "VoxAfdY2sptXSPxkhvt7"'>Admin</span></td>
+      <td>{{item.user_name}} <span class="badge badge-success" *ngIf='item.user_id_role == "Administrador"'>Admin</span></td>
       <td>{{item.user_surname}}</td>
       <td>{{item.user_cpf}}</td>
       <td>{{item.user_id_belt}}</td>
@@ -50,6 +50,16 @@
       <label for="inputPassword" class="sr-only">CPF</label>
       <input type="number" formControlName="cpf"  class="form-control" placeholder="CPF" required>
           
+		
+		<div class="dropdown" >
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu" >
+    <li *ngFor="let item of belts | async">{{item.color}}</li>
+
+  </ul>
+</div>
+
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
