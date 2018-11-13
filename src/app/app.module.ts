@@ -12,7 +12,12 @@ import { environment } from '../environments/environment';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+	BrowserAnimationsModule,
+	MatSidenavModule,
+	MatCheckboxModule,
+	MatToolbarModule
+  ],
+  exports: [
+	MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

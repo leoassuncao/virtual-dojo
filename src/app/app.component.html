@@ -1,7 +1,17 @@
-<div class="row" id="body-row">
-    <div *ngIf="router.url != '/login'">
-    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block" *ngIf="router.url != '/'">
-        <ul class="list-group">
+<nav class="navbar navbar-dark bg-dark">
+	<div  (click)="sidenav.toggle()">
+		<div class="bar"></div>
+		<div class="bar"></div>
+		<div class="bar"></div>
+	</div>
+	<h5 style="color: white;">Virtual Dojo</h5>
+</nav>
+
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" >
+  
+    <ul class="list-group">
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <small>ADMINISTRAÇÃO</small>
             </li>
@@ -65,15 +75,9 @@
                 </div>
             </a>  
         </ul>
-    </div>
-</div>
-    <div class="col">
-    	<router-outlet></router-outlet>
-    </div>
-</div>
+  </mat-sidenav>
 
+<router-outlet></router-outlet>
 
-
-
-
+</mat-sidenav-container>	
 
