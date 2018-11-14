@@ -4,3 +4,10 @@
     background-color: white;
     margin: 6px 0;
 }
+
+.mat-sidenav-container{
+  height: calc( 100vh - 250px); 
+  width: 100%;
+
+  
+}

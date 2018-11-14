@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 		let pwd = this.form.controls['password'].value;
 		
 			firebase.auth().signInWithEmailAndPassword(user, pwd).then((userInfo) => {
-			  this.router.navigate([ 'users' ]);
+			  this.router.navigate([ 'home' ]);
 			}).catch(function(error) {
 			    var errorCode = error.code;
 			    var errorMessage = error.message;

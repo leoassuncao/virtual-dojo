@@ -7,7 +7,7 @@
 	<h5 style="color: white;">Virtual Dojo</h5>
 </nav>
 
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container>
 
   <mat-sidenav #sidenav mode="side" [(opened)]="opened" >
   
@@ -15,6 +15,12 @@
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <small>ADMINISTRAÇÃO</small>
             </li>
+			<a href="home" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center  text-white">
+                    <span class="fa fa-calendar fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Home</span>
+                </div>
+            </a>
             <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center  text-white">
                     <span class="fa fa-dashboard fa-fw mr-3"></span>
@@ -23,7 +29,7 @@
                 </div>
             </a>
             <div id='submenu1' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <a href="users" class="list-group-item list-group-item-action bg-dark text-white">
                     <span class="menu-collapsed" clas="">Usuários</span>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
