@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark" *ngIf="router.url != '/'">
 	<div  (click)="sidenav.toggle()">
 		<div class="bar"></div>
 		<div class="bar"></div>
