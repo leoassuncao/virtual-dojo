@@ -27,9 +27,6 @@
               "src/bootstrap.min.css"
             ],
            "scripts": [
-            "node_modules/jquery/dist/jquery.slim.min.js",
-            "node_modules/popper/dist/umd/popper.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js",
             "node_modules/hammerjs/hammer.js",
             "node_modules/materialize-css/dist/js/materialize.js",
 
