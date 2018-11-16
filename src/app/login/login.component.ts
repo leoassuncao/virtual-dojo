@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-  
-
-
   doLogin() {
 
 		let user = this.form.controls['user'].value;
@@ -51,7 +48,5 @@ export class LoginComponent implements OnInit {
 			    }
 			    console.log(error);
 			});
-	
 	}
-
 }
