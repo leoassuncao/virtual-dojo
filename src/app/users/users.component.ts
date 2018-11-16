@@ -15,12 +15,12 @@ import * as firebase from 'firebase';
 
 export class UsersComponent  implements OnInit{
 
-private form: FormGroup;
+public form: FormGroup;
 items: Observable<any[]>;
 belts: Observable<any[]>;
 dojos: Observable<any[]>;
 roles: Observable<any[]>;
-private idClicked;
+public idClicked;
 
 
 
