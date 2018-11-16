@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-	private form: FormGroup;
+	public form: FormGroup;
 	app: firebase.app.App;
 
   constructor(private router: Router) { 
