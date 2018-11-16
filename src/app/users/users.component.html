@@ -8,9 +8,9 @@
 <table class="table table-bordered table-hover" >
   <thead class="thead-dark">
     <tr>
-      <th scope="col"></th>
       <th scope="col">Nome</th>
       <th scope="col">Sobrenome</th>
+	  <th scope="col">E-mail</th>
       <th scope="col">CPF</th>
       <th scope="col">Faixa</th>
       <th scope="col">Dojo</th>
@@ -20,15 +20,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of items | async">
-      <td><button type="button" class="btn btn-primary" (click)="editUser(item.id)">Editar</button></td>
       <td>{{item.user_name}} <span class="badge badge-success" *ngIf='item.user_id_role == "Administrador"'>Admin</span></td>
-
       <td>{{item.user_surname}}</td>
+      <td>{{item.user_email}}</td>
       <td>{{item.user_cpf}}</td>
       <td>{{item.user_id_belt}}</td>
       <td>{{item.user_id_dojo}}</td>
       <td>{{item.user_id_role}}</td>
-      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmation" (click)="delClicked(item.id)">Excluir</button></td>
+      <td><i data-toggle="tooltip" title="Editar usuário" style="margin-right: 5px;" class="fas fa-lg fa-pen text-primary" (click)="editUser(item.id)"></i>
+	  <i data-toggle="tooltip" title="Deletar usuário" class="far fa-lg text-danger fa-trash-alt" data-toggle="modal" data-target="#deleteConfirmation" (click)="delClicked(item.id)"></i></td>
     </tr>
   
   </tbody>
@@ -48,8 +48,10 @@
       <input type="text" formControlName="name"  class="form-control" placeholder="Nome" required autofocus>
       <label for="inputPassword" class="sr-only">Sobrenome</label>
       <input type="text" formControlName="surname"  class="form-control" placeholder="Sobrenome" required>
-      <label for="inputPassword" class="sr-only">CPF</label>
-      <input type="number" formControlName="cpf"  class="form-control" placeholder="CPF" required>
+	  <label for="inputEmail" class="sr-only">CPF</label>
+      <input type="text" formControlName="email"  class="form-control" placeholder="E-mail" required>
+      <label for="inputCPF" class="sr-only">CPF</label>
+      <input type="text" formControlName="cpf"  class="form-control" placeholder="CPF" required>
           
 	
 

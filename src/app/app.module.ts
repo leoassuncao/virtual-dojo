@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -37,7 +39,8 @@ import { HomeComponent } from './home/home.component';
 	BrowserAnimationsModule,
 	MatSidenavModule,
 	MatCheckboxModule,
-	MatToolbarModule
+	MatToolbarModule,
+	MatTooltipModule
   ],
   exports: [
 	MatSidenavModule
