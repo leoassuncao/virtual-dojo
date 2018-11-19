@@ -113,16 +113,13 @@ public idClicked;
 }
 
 	editUser(item){
-		this.db.collection('Users').doc(item).update({
-			user_cpf: "12346"});
-
 	this.router.navigate([ 'editUser/' + item ]);
 
 }
 
 
 	delClicked(id) {
-	this.idClicked = id;
+		this.idClicked = id;
 
 	}
 
