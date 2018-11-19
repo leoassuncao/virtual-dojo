@@ -1,0 +1,18 @@
+  <form class="form-signin col-md-12" [formGroup]="form" >
+      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <label for="inputEmail" class="sr-only">Nome</label>
+      <input type="text" formControlName="name"  class="form-control" placeholder="Nome" required autofocus>
+      <label for="inputPassword" class="sr-only">Sobrenome</label>
+      <input type="text" formControlName="surname"  class="form-control" placeholder="Sobrenome" required>
+	  <label for="inputEmail" class="sr-only">CPF</label>
+      <input type="text" formControlName="email"  class="form-control" placeholder="E-mail" required>
+      <label for="inputCPF" class="sr-only">CPF</label>
+      <input type="text" formControlName="cpf"  class="form-control" placeholder="CPF" required>
+          
+	
+
+      <div>
+      	<button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+      </form>

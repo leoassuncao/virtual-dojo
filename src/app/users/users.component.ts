@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,8 @@ public idClicked;
 
 
 
-  constructor(public db: AngularFirestore) { 
+  constructor(public db: AngularFirestore,
+  				private router: Router) { 
 
  this.items = db.collection('Users').snapshotChanges().pipe(map( changes => {
         return changes.map(a => {
@@ -111,9 +113,11 @@ public idClicked;
 }
 
 	editUser(item){
-	console.log(item);
 		this.db.collection('Users').doc(item).update({
 			user_cpf: "12346"});
+
+	this.router.navigate([ 'editUser/' + item ]);
+
 }
 
 

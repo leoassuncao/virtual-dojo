@@ -21,13 +21,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { HomeComponent } from './home/home.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
