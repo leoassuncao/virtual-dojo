@@ -35,18 +35,20 @@ export class LoginComponent implements OnInit {
 		let user = this.form.controls['user'].value;
 		let pwd = this.form.controls['password'].value;
 		
-			firebase.auth().signInWithEmailAndPassword(user, pwd).then((userInfo) => {
+		firebase.auth().signInWithEmailAndPassword(user, pwd).then((userInfo) => {
 			  this.router.navigate([ 'home' ]);
 			}).catch(function(error) {
 			    var errorCode = error.code;
 			    var errorMessage = error.message;
 
 			    if (errorCode === 'auth/wrong-password') {
-			        alert('Wrong password.');
+			        alert('Senha incorreta');
+			    } if (errorCode == 'auth/network-request-failed') {
+			    	alert('Erro de conexão')
 			    } else {
 			        alert(errorMessage);         
 			    }
 			    console.log(error);
-			});
+		});
 	}
 }
