@@ -64,4 +64,8 @@ editUser() {
 
 	this.router.navigate([ 'users' ]);		
 	}
+
+back() {
+	this.router.navigate([ 'users' ]);	
+	}
 }
