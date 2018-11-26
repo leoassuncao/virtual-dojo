@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 	public form: FormGroup;
 	app: firebase.app.App;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
 
 	this.app = firebase.initializeApp(environment.firebase);
   }
@@ -32,21 +32,21 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
 
-		let user = this.form.controls['user'].value;
-		let pwd = this.form.controls['password'].value;
-		
+		const user = this.form.controls['user'].value;
+		const pwd = this.form.controls['password'].value;
+
 		firebase.auth().signInWithEmailAndPassword(user, pwd).then((userInfo) => {
 			  this.router.navigate([ 'home' ]);
 			}).catch(function(error) {
-			    var errorCode = error.code;
-			    var errorMessage = error.message;
+			    const errorCode = error.code;
+			    const errorMessage = error.message;
 
 			    if (errorCode === 'auth/wrong-password') {
 			        alert('Senha incorreta');
-			    } if (errorCode == 'auth/network-request-failed') {
-			    	alert('Erro de conexão')
+			    } if (errorCode === 'auth/network-request-failed') {
+			    	alert('Erro de conexão');
 			    } else {
-			        alert(errorMessage);         
+			        alert(errorMessage);
 			    }
 			    console.log(error);
 		});

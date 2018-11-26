@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./users.component.css']
 })
 
-export class UsersComponent  implements OnInit{
+export class UsersComponent  implements OnInit {
 
 public form: FormGroup;
 items: Observable<any[]>;
@@ -26,7 +26,7 @@ public idClicked;
 
 
   constructor(public db: AngularFirestore,
-  				private router: Router) { 
+  				private router: Router) {
 
  this.items = db.collection('Users').snapshotChanges().pipe(map( changes => {
         return changes.map(a => {
@@ -36,7 +36,7 @@ public idClicked;
 
         });
     }));
-	
+
  this.belts = db.collection('Belts').snapshotChanges().pipe(map( changes => {
         return changes.map(a => {
             const data = a.payload.doc.data() ;
@@ -69,62 +69,51 @@ public idClicked;
   ngOnInit() {
 
 
-  this.form = new FormGroup({
-			name: new FormControl('', Validators.required),
-			surname: new FormControl('', Validators.required),
-			email: new FormControl('', Validators.required),
-			cpf: new FormControl('', Validators.required),
-			belts: new FormControl('', Validators.required),
-			dojos: new FormControl('', Validators.required),	
-			roles: new FormControl('', Validators.required)
-		});
-  }
+	  this.form = new FormGroup({
+				name: new FormControl('', Validators.required),
+				surname: new FormControl('', Validators.required),
+				email: new FormControl('', Validators.required),
+				cpf: new FormControl('', Validators.required),
+				belts: new FormControl('', Validators.required),
+				dojos: new FormControl('', Validators.required),
+				roles: new FormControl('', Validators.required)
+			});
+	  }
 
-	addUser() {
-		let user = this.form.controls['name'].value;
-		let surname = this.form.controls['surname'].value;
-		let email = this.form.controls['email'].value;
-		let cpf = this.form.controls['cpf'].value;
-		let belt = this.form.controls['belts'].value;
-		let dojo = this.form.controls['dojos'].value;
-		let role = this.form.controls['roles'].value;
-		let teste =   this.db.collection("Users");
+		addUser() {
+			const user = this.form.controls['name'].value;
+			const surname = this.form.controls['surname'].value;
+			const email = this.form.controls['email'].value;
+			const cpf = this.form.controls['cpf'].value;
+			const belt = this.form.controls['belts'].value;
+			const dojo = this.form.controls['dojos'].value;
+			const role = this.form.controls['roles'].value;
+			const teste =   this.db.collection('Users');
 
-		firebase.auth().createUserWithEmailAndPassword(email, cpf).then(function (data)  {
-			let tempId = data.user.uid;
-             teste.doc(tempId).set({
-				user_cpf: cpf,
-				user_email: email,
-				user_id_belt: belt,
-				user_id_dojo: dojo,
-				user_id_role: role,
-				user_name: user,
-				user_surname: surname
-				}) 
-            });	
-}
-
-	detailUser(item){
-		console.log(item);
-}
-	
-	deleteUser(item){
-		this.db.collection("Users").doc(item).delete();
-}
-
-	editUser(item){
-	this.router.navigate([ 'editUser/' + item ]);
-
-}
-
-
-	delClicked(id) {
-		this.idClicked = id;
+			firebase.auth().createUserWithEmailAndPassword(email, cpf).then(function (data)  {
+				const tempId = data.user.uid;
+	             teste.doc(tempId).set({
+					user_cpf: cpf,
+					user_email: email,
+					user_id_belt: belt,
+					user_id_dojo: dojo,
+					user_id_role: role,
+					user_name: user,
+					user_surname: surname
+					});
+	            });
+	}
+		detailUser(item) {
+			console.log(item);
+	}
+		deleteUser(item) {
+			this.db.collection('Users').doc(item).delete();
+	}
+		editUser(item) {
+		this.router.navigate([ 'editUser/' + item ]);
 
 	}
-
-
-
-
-
-}
+		delClicked(id) {
+			this.idClicked = id;
+			}
+	}

@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class EdituserComponent implements OnInit {
 
-	public user: string;
-	public form: FormGroup;
+	 public user: string;
+	 public form: FormGroup;
 
 
   constructor(public db: AngularFirestore,
@@ -38,8 +38,8 @@ export class EdituserComponent implements OnInit {
   }
 
 getUserInfo(userId) {
-	let editForm = this.form;
-  	this.db.collection("Users").doc(userId).get().toPromise().then(function(doc) {
+	const editForm = this.form;
+  	this.db.collection('Users').doc(userId).get().toPromise().then(function(doc) {
   	console.log(doc.data());
   	editForm.controls['name'].setValue(doc.data().user_name);
 	editForm.controls['surname'].setValue(doc.data().user_surname);
@@ -50,22 +50,22 @@ getUserInfo(userId) {
 	}
 
 editUser() {
-		let user = this.form.controls['name'].value;
-		let surname = this.form.controls['surname'].value;
-		let email = this.form.controls['email'].value;
-		let cpf = this.form.controls['cpf'].value;
+		const user = this.form.controls['name'].value;
+		const surname = this.form.controls['surname'].value;
+		const email = this.form.controls['email'].value;
+		const cpf = this.form.controls['cpf'].value;
 
 			this.db.collection('Users').doc(this.user).update({
 				user_name: user,
 				user_surname: surname,
 				user_cpf: cpf,
 				user_email: email
-				});	
+				});
 
-	this.router.navigate([ 'users' ]);		
+	this.router.navigate([ 'users' ]);
 	}
 
 back() {
-	this.router.navigate([ 'users' ]);	
+	this.router.navigate([ 'users' ]);
 	}
 }

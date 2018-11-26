@@ -38,14 +38,14 @@ import { EdituserComponent } from './edituser/edituser.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-	BrowserAnimationsModule,
-	MatSidenavModule,
-	MatCheckboxModule,
-	MatToolbarModule,
-	MatTooltipModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatTooltipModule
   ],
   exports: [
-	MatSidenavModule
+  MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
