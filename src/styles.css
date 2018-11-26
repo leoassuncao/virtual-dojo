@@ -2,3 +2,7 @@
 .section-title {
 	color: #f00;
 }
+
+html,body{
+    height:100%;
+}
